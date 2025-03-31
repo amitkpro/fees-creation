@@ -283,19 +283,23 @@ export default function FeesCreation() {
               <MenuIcon />
             </IconButton>
             <TextField
-              size="small"
-              placeholder="Search..."
-              variant="outlined"
-              aria-label="Search"
-              sx={{ ml: { xs: 1, md: 2 }, width: { xs: 120, sm: 200 } }}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon fontSize="small" />
-                  </InputAdornment>
-                ),
-              }}
-            />
+  size="small"
+  placeholder="Search..."
+  variant="outlined"
+  aria-label="Search"
+  sx={{ 
+    ml: { xs: 1, md: 2 }, 
+    width: { xs: 180, sm: 250, md: 300, lg: 600 }  // Increased width
+  }}
+  InputProps={{
+    startAdornment: (
+      <InputAdornment position="start">
+        <SearchIcon fontSize="small" />
+      </InputAdornment>
+    ),
+  }}
+/>
+
             <Box sx={{ ml: "auto", display: "flex", alignItems: "center" }}>
               <IconButton aria-label="Help">
                 <HelpIcon />
@@ -593,51 +597,51 @@ export default function FeesCreation() {
                       </Grid>
 
                       {/* Total Fees Summary Table */}
-                      <Grid item xs={12} md={5}>
-                        <Typography variant="subtitle2" gutterBottom sx={{ color: "#0277bd", fontWeight: "medium" }}>
-                          Total Fees Amount
-                        </Typography>
-                        <TableContainer
-                          component={Paper}
-                          sx={{
-                            backgroundColor: "#e3f2fd",
-                            borderRadius: 2,
-                            boxShadow: "none",
-                            overflow: "hidden",
-                          }}
-                        >
-                          <Table size="small" aria-label="fees summary table">
-                            <TableHead>
-                              <TableRow sx={{ backgroundColor: "#bbdefb" }}>
-                                <TableCell sx={{ fontWeight: "medium", color: "#0277bd", width: "10%" }}>No</TableCell>
-                                <TableCell sx={{ fontWeight: "medium", color: "#0277bd", width: "50%" }}>
-                                  Fees Name
-                                </TableCell>
-                                <TableCell align="right" sx={{ fontWeight: "medium", color: "#0277bd", width: "40%" }}>
-                                  Fees Amount
-                                </TableCell>
-                              </TableRow>
-                            </TableHead>
-                            <TableBody>
-                              {feesData.map((row) => (
-                                <TableRow key={row.id} sx={{ backgroundColor: "transparent" }}>
-                                  <TableCell>{row.id}</TableCell>
-                                  <TableCell>{row.name}</TableCell>
-                                  <TableCell align="right">{row.amount}</TableCell>
-                                </TableRow>
-                              ))}
-                              <TableRow sx={{ backgroundColor: "#bbdefb" }}>
-                                <TableCell colSpan={2} sx={{ fontWeight: "medium", color: "#0277bd" }}>
-                                  Total Fees Amount
-                                </TableCell>
-                                <TableCell align="right" sx={{ fontWeight: "medium" }}>
-                                  {totalAmount.toLocaleString()}
-                                </TableCell>
-                              </TableRow>
-                            </TableBody>
-                          </Table>
-                        </TableContainer>
-                      </Grid>
+                      <Grid item xs={12} md={6} sx={{ minHeight: 300 }}> {/* Increased width & height */}
+  <Typography variant="subtitle2" gutterBottom sx={{ color: "#0277bd", fontWeight: "medium" }}>
+    Total Fees Amount
+  </Typography>
+  <TableContainer
+    component={Paper}
+    sx={{
+      backgroundColor: "#e3f2fd",
+      borderRadius: 2,
+      boxShadow: "none",
+      overflow: "hidden",
+      width: "100%", // Make it full width
+      minHeight: 250, // Increased height
+      padding: 2, // Added padding for spacing
+    }}
+  >
+    <Table size="small" aria-label="fees summary table">
+      <TableHead>
+        <TableRow sx={{ backgroundColor: "#bbdefb" }}>
+          <TableCell sx={{ fontWeight: "medium", color: "#0277bd", width: "10%" }}>No</TableCell>
+          <TableCell sx={{ fontWeight: "medium", color: "#0277bd", width: "50%" }}>Fees Name</TableCell>
+          <TableCell align="right" sx={{ fontWeight: "medium", color: "#0277bd", width: "40%" }}>Fees Amount</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {feesData.map((row) => (
+          <TableRow key={row.id} sx={{ backgroundColor: "transparent" }}>
+            <TableCell>{row.id}</TableCell>
+            <TableCell>{row.name}</TableCell>
+            <TableCell align="right">{row.amount}</TableCell>
+          </TableRow>
+        ))}
+        <TableRow sx={{ backgroundColor: "#bbdefb" }}>
+          <TableCell colSpan={2} sx={{ fontWeight: "medium", color: "#0277bd" }}>
+            Total Fees Amount
+          </TableCell>
+          <TableCell align="right" sx={{ fontWeight: "medium" }}>
+            {totalAmount.toLocaleString()}
+          </TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  </TableContainer>
+</Grid>
+
                     </Grid>
                   </TabPanel>
 
