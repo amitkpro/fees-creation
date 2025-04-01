@@ -1,4 +1,3 @@
-"use client"
 
 import type React from "react"
 
@@ -223,7 +222,7 @@ export default function FeesCreation() {
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ display: "flex", minHeight: "100vh" }}>
-        {/* Permanent sidebar for desktop */}
+       
         <Drawer
           variant="permanent"
           sx={{
@@ -241,7 +240,7 @@ export default function FeesCreation() {
           <SidebarContent />
         </Drawer>
 
-        {/* Temporary drawer for mobile */}
+       
         <Drawer
           variant="temporary"
           open={drawerOpen}
@@ -259,9 +258,9 @@ export default function FeesCreation() {
           <SidebarContent />
         </Drawer>
 
-        {/* Main content */}
+       
         <Box component="main" sx={{ flexGrow: 1, p: { xs: 2, md: 3 }, backgroundColor: "#f5f5f5" }}>
-          {/* Header */}
+        
           <Box
             sx={{
               display: "flex",
@@ -323,7 +322,7 @@ export default function FeesCreation() {
             </Box>
           </Box>
 
-          {/* Content */}
+        
           <Container maxWidth="xl" disableGutters>
             <Paper
               sx={{
@@ -362,7 +361,7 @@ export default function FeesCreation() {
         onChange={(e) => setProgramLevel(e.target.value as string)}
         displayEmpty
         renderValue={(selected) => (selected ? selected : "Select")}
-        endAdornment={<KeyboardArrowDownIcon />}
+        // endAdornment={<KeyboardArrowDownIcon />}
         inputProps={{ "aria-label": "Program Level" }}
       >
         <MenuItem value="undergraduate">Undergraduate</MenuItem>
@@ -381,7 +380,7 @@ export default function FeesCreation() {
         onChange={(e) => setProgramType(e.target.value as string)}
         displayEmpty
         renderValue={(selected) => (selected ? selected : "Select")}
-        endAdornment={<KeyboardArrowDownIcon />}
+       // endAdornment={<KeyboardArrowDownIcon />}
         inputProps={{ "aria-label": "Program Type" }}
       >
         <MenuItem value="regular">Regular</MenuItem>
@@ -404,7 +403,7 @@ export default function FeesCreation() {
                       onChange={(e) => setProgramName(e.target.value as string)}
                       displayEmpty
                       renderValue={(selected) => (selected ? selected : "Select")}
-                      endAdornment={<KeyboardArrowDownIcon />}
+                     // endAdornment={<KeyboardArrowDownIcon />}
                       inputProps={{ "aria-label": "Program Name" }}
                     >
                       <MenuItem value="btech">B.Tech</MenuItem>
@@ -417,7 +416,7 @@ export default function FeesCreation() {
                  
                 </Box>
 
-                {/* Program Run in Colleges */}
+
                 <Box sx={{ mt: 4 }}>
                   <Typography variant="subtitle1" gutterBottom>
                     Program Run in Colleges
@@ -499,8 +498,8 @@ export default function FeesCreation() {
                           label={`Sem ${sem}`}
                           {...a11yProps(index)}
                           sx={{
-                            backgroundColor: tabValue === index ? "#0277bd" : "transparent",
-                            color: tabValue === index ? "#fff" : "#0277bd",
+                            backgroundColor: tabValue === index ? "#0084CA" : "transparent",
+                            color: tabValue === index ? "#FFF7E6" : "#0277bd",
                             borderRadius: "4px 4px 0 0",
                             minWidth: 80,
                             minHeight: "40px",
@@ -515,10 +514,10 @@ export default function FeesCreation() {
                     </Tabs>
                   </Box>
 
-                  {/* Semester 1 Tab Panel */}
+                 
                   <TabPanel value={tabValue} index={0}>
                     <Grid container spacing={3}>
-                      <Grid item xs={12} md={7}>
+                      <Grid item xs={12} md={7} sx={{ width: "58%" }}>
                         <Box sx={{ mb: 3 }}>
                           <Typography variant="subtitle2" gutterBottom sx={{ color: "#0277bd", fontWeight: "medium" }}>
                             Select Fees Payment Templates
@@ -529,7 +528,7 @@ export default function FeesCreation() {
                               onChange={(e) => setFeeTemplate(e.target.value as string)}
                               displayEmpty
                               renderValue={(selected) => (selected ? selected : "Select")}
-                              endAdornment={<KeyboardArrowDownIcon />}
+                             // endAdornment={<KeyboardArrowDownIcon />}
                               inputProps={{ "aria-label": "Fee Template" }}
                               sx={{
                                 backgroundColor: "#fff",
@@ -538,73 +537,76 @@ export default function FeesCreation() {
                                 },
                               }}
                             >
-                              <MenuItem value="template1">Template 1</MenuItem>
-                              <MenuItem value="template2">Template 2</MenuItem>
-                              <MenuItem value="template3">Template 3</MenuItem>
+                              <MenuItem value="Fees1">Fees 1</MenuItem>
+                              <MenuItem value="Fees2">Fees 2</MenuItem>
+                              <MenuItem value="Fees3">Fees 3</MenuItem>
                             </Select>
                           </FormControl>
                         </Box>
 
-                        {/* Fee Entry Fields - Exactly 3 rows as shown in the image */}
-                        {[1, 2, 3].map((item) => (
-                          <Grid container spacing={2} key={item} sx={{ mb: 2 }}>
-                            <Grid item xs={12} sm={6}>
-                              <Typography
-                                variant="subtitle2"
-                                gutterBottom
-                                sx={{ color: "#0277bd", fontWeight: "medium" }}
-                              >
-                                Fees Name
-                              </Typography>
-                              <TextField
-                                fullWidth
-                                size="small"
-                                placeholder="Default"
-                                variant="outlined"
-                                aria-label={`Fee Name ${item}`}
-                                sx={{
-                                  backgroundColor: "#fff",
-                                  "& .MuiOutlinedInput-notchedOutline": {
-                                    borderColor: "#e0e0e0",
-                                  },
-                                }}
-                              />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                              <Typography
-                                variant="subtitle2"
-                                gutterBottom
-                                sx={{ color: "#0277bd", fontWeight: "medium" }}
-                              >
-                                Fees Amount
-                              </Typography>
-                              <TextField
-                                fullWidth
-                                size="small"
-                                placeholder="NUM"
-                                variant="outlined"
-                                aria-label={`Fee Amount ${item}`}
-                                sx={{
-                                  backgroundColor: "#fff",
-                                  "& .MuiOutlinedInput-notchedOutline": {
-                                    borderColor: "#e0e0e0",
-                                  },
-                                }}
-                              />
-                            </Grid>
-                          </Grid>
-                        ))}
+                      
+                        <Box sx={{ width: "100%" }}>
+  {[1, 2, 3].map((item) => (
+    <Grid container spacing={2} key={item} sx={{ mb: 2 }}>
+      <Grid item xs={12} sm={12} md={12} sx={{ width: "45%" }}>
+        <Typography
+          variant="subtitle2"
+          gutterBottom
+          sx={{ color: "#0277bd", fontWeight: "medium" }}
+        >
+          Fees Name
+        </Typography>
+        <TextField
+          fullWidth
+          size="small"
+          placeholder="Default"
+          variant="outlined"
+          aria-label={`Fee Name ${item}`}
+          sx={{
+            backgroundColor: "#fff",
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#e0e0e0",
+            },
+          }}
+        />
+      </Grid>
+      <Grid item xs={12} sm={12} md={12} lg={12} sx={{ width: "45%" }}>
+        <Typography
+          variant="subtitle2"
+          gutterBottom
+          sx={{ color: "#0277bd", fontWeight: "medium" }}
+        >
+          Fees Amount
+        </Typography>
+        <TextField
+          fullWidth
+          size="small"
+          placeholder="NUM"
+          variant="outlined"
+          aria-label={`Fee Amount ${item}`}
+          sx={{
+            backgroundColor: "#fff",
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#e0e0e0",
+            },
+          }}
+        />
+      </Grid>
+    </Grid>
+  ))}
+</Box>
+
                       </Grid>
 
-                      {/* Total Fees Summary Table */}
-                      <Grid item xs={12} md={6} sx={{ minHeight: 300 }}> {/* Increased width & height */}
+                     
+                      <Grid item xs={12} md={6} sx={{ minHeight: 300 , width: "38%"}}> 
   <Typography variant="subtitle2" gutterBottom sx={{ color: "#0277bd", fontWeight: "medium" }}>
     Total Fees Amount
   </Typography>
   <TableContainer
     component={Paper}
     sx={{
-      backgroundColor: "#e3f2fd",
+      backgroundColor: "#E6F0F6",
       borderRadius: 2,
       boxShadow: "none",
       overflow: "hidden",
@@ -629,23 +631,25 @@ export default function FeesCreation() {
             <TableCell align="right">{row.amount}</TableCell>
           </TableRow>
         ))}
-        <TableRow sx={{ backgroundColor: "#bbdefb" }}>
-          <TableCell colSpan={2} sx={{ fontWeight: "medium", color: "#0277bd" }}>
-            Total Fees Amount
-          </TableCell>
-          <TableCell align="right" sx={{ fontWeight: "medium" }}>
-            {totalAmount.toLocaleString()}
-          </TableCell>
-        </TableRow>
+     
+
       </TableBody>
     </Table>
+    <Box sx={{ width:"100%", display: "flex", justifyContent: "space-between", mt: 2, p: 2, backgroundColor: "#bbdefb" }}>
+  <Typography sx={{ fontWeight: "medium", color: "#0277bd" }}>
+    Total Fees Amount:
+  </Typography>
+  <Typography sx={{ fontWeight: "medium" }}>
+    {totalAmount.toLocaleString()}
+  </Typography>
+</Box>
   </TableContainer>
 </Grid>
 
                     </Grid>
                   </TabPanel>
 
-                  {/* Other semester tab panels would go here */}
+                 
                   {[1, 2, 3, 4, 5, 6, 7].map((sem, index) => (
                     <TabPanel key={sem} value={tabValue} index={index + 1}>
                       <Box sx={{ p: 2, textAlign: "center" }}>
@@ -657,7 +661,7 @@ export default function FeesCreation() {
               </Box>
             </Paper>
 
-            {/* Action Buttons */}
+           
             <Box sx={{ display: "flex", justifyContent: "flex-end", gap: 2, mb: 4 }}>
               <Button
                 variant="contained"
